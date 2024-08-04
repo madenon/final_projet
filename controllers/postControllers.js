@@ -20,9 +20,9 @@ const createPost = async (req, res, next) => {
 
     const { thumbnail } = req.files;
     // Vefier la taille
-    if (thumbnail.size > 2000000) {
+    if (thumbnail.size < 2000000) {
       return next(
-        new HttpError("La taille de votre imag est ne peut etre supproter")
+        new HttpError("La taille de votre image est grande ne peut etre supproter")
       );
     }
 
