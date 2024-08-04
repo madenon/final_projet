@@ -37,7 +37,7 @@ const registerUser = async (req, res, next) => {
     const newUser = await User.create({
       name,
       email: newEmail,
-      password: hashedPassword,
+      password:hashedPassword,
     });
     res
       .status(201)
@@ -70,6 +70,7 @@ const loginUser = async (req, res, next) => {
  if(!compoarePassword){
   return  next(new HttpErorr(" Informations données sont invalide pour se connecter"))
  }
+
 
 const {_id:id, name} = user;
 const token = jwt.sign({id, name}, process.env.JWT_SECRET, {expiresIn:"1d"})
